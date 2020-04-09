@@ -1,6 +1,7 @@
 # NoteBook
 The note book of xiaofei
 
+![this is pic](./Pictures/Explosion_1080.jpg "pci tips" )
 
 [题目地址](https://www.jianshu.com/p/476b52ee4f1b)
 
@@ -18,5 +19,5 @@ This is a vertical bar
 
 [Google][link]
 
-![this is pic](./Pictures/Explosion_1080.jpg "pci title" )
+
 
