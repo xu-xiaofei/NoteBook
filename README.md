@@ -1,23 +1,18 @@
-# NoteBook
-The note book of xiaofei
-
-![this is pic](./Pictures/Explosion_1080.jpg "pci tips" )
-
-[题目地址](https://www.jianshu.com/p/476b52ee4f1b)
-
-[答案地址](https://blog.csdn.net/fashion2014/article/details/78826299)
-
-[内部导航](./Java基础/Java基础--34--子类“覆盖”父类的成员变量.md)
+# NoteBook of Java
 
 
-[Google][link]
+1. ## [Java 基础](./Java基础)
+    
+2. ## [Java Web](./Java-web) 
+    * [Spring-boot](./Java-web/Spring-Boot)
+    * [Spring-cloud](./Java-web/Spring-Cloud)
 
-[link]: http://www.google.com/ "Google"
+3. ## [数据库](./Database)
+    * [MySql](./Database/MySql)
+    * [Redis](./Database/Redis)
+    * [MongoDB](./Database/MongoDB)
 
-
-This is a vertical bar
-
-[Google][link]
+![Java Web](./Pictures/The_Last_In_Header_Page.webp) 
 
 
 
