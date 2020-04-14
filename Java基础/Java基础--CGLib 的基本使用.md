@@ -1,6 +1,6 @@
 ### 简单demo
 
-[学习地址](https://houbb.github.io/2018/07/23/cglib "easy demo")
+[学习地址](https://houbb.github.io/2018/07/23/cglib "学习地址")
 
 ```java
 
