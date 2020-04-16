@@ -1,8 +1,8 @@
 ### Junit4 源码分析
 
-1. Junit4的入口类
+1. Junit4运行前的构建过程
 
-2. Junit4运行前的构建过程
+2. Junit4的入口类
 
 3. Junit4的运行过程
 ```java
