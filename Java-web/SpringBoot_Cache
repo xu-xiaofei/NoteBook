@@ -94,3 +94,8 @@ public class CacheConfig {
 ```
 CacheManager 规定了一系列的cache 的操作put,set，get等等
 
+3. 默认配置
+
+如果yml文件里面配置了redis，那么在不指定cacheManager的情况下，springboot会默认使用redis作为缓存
+Springboot 的默认缓存是ConcurrentMapCacheManager，是一个并发map做的缓存
+
