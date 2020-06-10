@@ -17,4 +17,6 @@
 
 10. Spring MVC 的响应过程
 
-11.Spring 容器 和Spring MVC 容器
+11. Spring 容器 和Spring MVC 容器
+
+13. WebApplicationContext wac = ContextLoader.getCurrentWebApplicationContext();

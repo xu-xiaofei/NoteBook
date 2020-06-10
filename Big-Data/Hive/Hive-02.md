@@ -6,4 +6,7 @@
 
 HIVE的特点：__可伸缩__（在Hadoop的集群上动态的添加设备），可扩展，容错，输入格式的松散耦合。
 
-1. 
+1. Hive 的数据类型
+    基本类型和复杂类型  [参考](https://blog.csdn.net/bingduanlbd/article/details/52075058)  
+
+2. Hive的分区
