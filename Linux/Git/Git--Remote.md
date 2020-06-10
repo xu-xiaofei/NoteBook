@@ -19,15 +19,15 @@ usage: git remote [-v | --verbose]
 
 ```
 
-1. 已有项目如何push到github
-```
-//如果远程没有仓库，使用此条命令创建仓库
-git remote add origin new.git.url/here
-例如：git remote add https://github.com/xu-xiaofei/NoteBook.git
-//如果远程已有仓库，使用此条命令设置/更改remote的地址
-git remote set-url origin new.git.url/here
+#### 1. 已有项目如何push到github
+    1. 如果远程没有仓库,必须先去GitHub上面创建一个空的项目
+    `git remote add origin new.git.url/here`
+    例如：git remote add origin https://github.com/xu-xiaofei/NoteBook.git  
+    
+    //如果远程已有仓库，使用此条命令设置/更改remote的地址
+    git remote set-url origin new.git.url/here
 
-//然后就可以push
-```
+    //然后就可以push
+
 
 2. 
