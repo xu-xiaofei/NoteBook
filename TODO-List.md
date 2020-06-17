@@ -25,3 +25,5 @@
 
 14. filter 和interceptor的使用要做实验
 
+15. Mybatis 不支持重载怎么优雅处理
+

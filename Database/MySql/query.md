@@ -29,3 +29,24 @@ select measure_timestamp,assetId,measurepoint,value from
             )         
         ) where expr = true  and expr1 = true or expr2 =true and expr3 = true      
     ) 
+
+--------------------------------------------------------------------------------------------------------
+```sql
+
+select measure_timestamp,assetId,measurepoint,value
+from asset_measure_value
+left semi join (
+    select measure_timestamp
+	from (
+		select m_t, sum(case when m_p = V_LOT_NO and (value = ${value1} or value = ${value2}) then value end) expr,
+					sum(case when m_p = ${P1} and (value >= ${valStart} and value <= ${valEnd}) then value end) expr1,
+					sum(case when m_p = ${P2} and (value >= ${valStart} and value <= ${valEnd}) then value end) exp2,
+					sum(case when m_p = ${P3} and (value >= ${valStart} and value <= ${valEnd}) then value end) exp3
+		from asset_measure_value
+		where m_t between ${timeStart} and ${timeEnd} and asset_id = ${assetId}
+		group by m_t     
+    ) where expr is not null  and expr1 is not null or expr2 is not null and expr3 is not null
+) t on asset_measure_value.measure_timestamp = t.measure_timestamp
+where assetId = ${assetId}
+
+```
