@@ -1,6 +1,7 @@
 1. Anaconda
 
     什么是Anaconda：Package, dependency and environment management for any language---Python, R, Ruby, Lua, Scala, Java, JavaScript, C/ C++, FORTRAN
+
 1.1 安装Anaconda
 
     下载Anaconda https://www.anaconda.com/，按照步骤安装http://docs.anaconda.com/anaconda/user-guide/getting-started/#open-nav-win。
