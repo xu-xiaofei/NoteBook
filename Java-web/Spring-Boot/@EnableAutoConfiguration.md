@@ -54,3 +54,12 @@ org.springframework.boot.autoconfigure.cloud.CloudAutoConfiguration,\
 2.  实战过程，请参考项目
 
 [参考](https://blog.csdn.net/weixin_34015566/article/details/89691189)
+
+
+3. exclude
+
+@EnableAutoConfiguration(exclude={排除的配置类.class})
+
+如果发现正在应用您不需要的特定自动配置类，则可以使用exclude属性@EnableAutoConfiguration禁用
+
+例如替换默认DataSourceAutoConfiguration.class 数据配置
