@@ -9,4 +9,7 @@ HIVE的特点：__可伸缩__（在Hadoop的集群上动态的添加设备），
 1. Hive 的数据类型
     基本类型和复杂类型  [参考](https://blog.csdn.net/bingduanlbd/article/details/52075058)  
 
+    Tips:
+    在Hive中提供了字段类型TIMESTAMP，但其对应的时间格式为yyyy-MM-dd HH:MM:SS，即通过LOAD命令将文本加载到已创建的表中时，只有满足上述格式的内容才可以被正确解析，否则只能识别为NULL。
+
 2. Hive的分区
