@@ -1,9 +1,13 @@
 HAVING子句已添加到SQL，因为WHERE关键字不能与聚合函数一起使用。
 
 具体语法
-SELECT column_name(s)
+SELECT column_name, aggregate_function(column_name)
 FROM table_name
-WHERE condition
-GROUP BY column_name(s)
-HAVING condition
-ORDER BY column_name(s);
+WHERE column_name operator value
+GROUP BY column_name
+HAVING aggregate_function(column_name) operator value
+
+```sql
+select * from sys_batch_log having count(*) >1
+// 这最多只会得到一条结果，由此可以看出having 和where 本质上有相似之处，只是having支持聚合函数
+```
