@@ -13,3 +13,24 @@
     ```xml
         <w:binData w:name="wordml://02000006.jpg" xml:space="preserve">${imageList[5]}</w:binData>
     ```
+
+### 2. 使用插件POI-tl 来完成word 文件的生成
+```java
+            <dependency>
+                <groupId>com.deepoove</groupId>
+                <artifactId>poi-tl</artifactId>
+                <version>${poitl.version}</version>
+            </dependency>
+
+```
+使用演示：
+```java
+    /*配置生成word 的特殊配置，例如表格循环等等*/
+    private static void generateWordFile(String templateFile, String destFilePath, Object model) {
+        HackLoopTableRenderPolicy policy = new HackLoopTableRenderPolicy();
+        Configure config = Configure.newBuilder().bind("tableRowList", policy).setElMode(Configure.ELMode.POI_TL_STANDARD_MODE).build();
+
+        PoiUtils.generateWordFile(templateFile, destFilePath, model, config);
+    }
+```
+
