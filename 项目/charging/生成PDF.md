@@ -40,7 +40,68 @@
         - 标签必须闭合
         -  必须是标准的html 文件，需要文件头
 
-    3. 代码演示
+## 4. 代码演示
+
+  - 4.2 构建HTML
+
+    ```java
+    import com.meinergy.chargingpile.common.exception.GlobalException;
+    import freemarker.template.Configuration;
+    import freemarker.template.Template;
+    import freemarker.template.TemplateException;
+    import lombok.extern.slf4j.Slf4j;
+
+    import javax.validation.Valid;
+    import java.io.IOException;
+    import java.io.StringWriter;
+
+    /**
+    * @Created by xiaofei.xu
+    * @Date 2020/10/29
+    * Description:
+    */
+    @Slf4j
+    public class FreeMarkerUtils {
+
+        /**
+        * templates/bus/费用测算模板.ftl
+        * 使用free marker 模板和引擎生成内容的String字符串
+        *
+        * @param dataModel                the data model
+        * @param templateRelativeDir the template relative dir  模板相对class的路径
+        * @param templateName        the template name  模板的名字.ftl
+        * @return string
+        * @throws IOException       the io exception
+        * @throws TemplateException the template exception
+        */
+        public static String generateContent(@Valid Object dataModel, String templateRelativeDir, String templateName) {
+            try {
+                // 第一步：创建一个Configuration对象。
+                Configuration configuration = new Configuration(Configuration.getVersion());
+                // 创建一个Writer对象。
+                StringWriter out = new StringWriter();
+                // 第二步：设置模板文件所在的路径。
+                configuration.setClassForTemplateLoading(FreeMarkerUtils.class, templateRelativeDir);
+                // 第三步：设置模板文件使用的字符集。
+                configuration.setDefaultEncoding("utf-8");
+                // 第四步：加载一个模板，创建一个模板对象。
+                Template template = configuration.getTemplate(templateName);
+                // 第五步：调用模板对象的process将数据塞入模板中。
+                template.process(dataModel, out);
+                out.flush();
+                //返回处理好的字符串
+                String contentString = out.toString();
+                out.close();
+                return contentString;
+            } catch (Exception e) {
+                log.error("Failed to generate file", e);
+                throw new GlobalException("生成文件失败");
+            }
+        }
+
+    ```
+    -  4.1 HTML转PDF
+
     ```java
         
         /**
@@ -99,4 +160,5 @@
             }
         }
     ```
+
 

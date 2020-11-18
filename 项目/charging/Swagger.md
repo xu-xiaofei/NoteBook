@@ -22,4 +22,4 @@
 ```
 实例图：
 
- ![swagger](./Pictures/Swagger_pic_1.png)
+ ![swagger pict](/Pictures/Swagger_pic_1.png)
