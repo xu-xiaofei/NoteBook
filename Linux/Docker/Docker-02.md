@@ -12,3 +12,5 @@ docker inpect container_id  观察其json 的volume的Description
 
 
 # 2.inernet
+
+Docker 有四种网络选择，默认为桥接模式(bridge)
