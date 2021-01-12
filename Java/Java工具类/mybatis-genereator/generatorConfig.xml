@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+<generatorConfiguration>
+    <context id="mysql"  targetRuntime="MyBatis3">
+        <!-- 生成的java文件编码 -->
+        <property name="javaFileEncoding" value="UTF-8"/>
+        <!-- mysql 数据库反引号，oracle为双引号 -->
+        <property name="beginningDelimiter" value="`"/>
+        <property name="endingDelimiter" value="`"/>
+
+        <commentGenerator>
+            <!-- 是否去除自动生成的注释true:是 -->
+            <property name="suppressAllComments" value="true"/>
+            <property name="suppressDate" value="true"/>
+        </commentGenerator>
+
+        <!-- 数据库连接 -->
+        <jdbcConnection connectionURL="jdbc:mysql://172.16.1.27:3306/scada_intranet" driverClass="com.mysql.jdbc.Driver" password="scada_intranet_user" userId="scada_intranet_user" />
+        <!-- 生成实体类 -->
+        <javaModelGenerator targetPackage="com.tellhow.cloud.sesp_scada_intranet.dao" targetProject="src/main/java">
+            <!-- 是否对model添加 构造函数 -->
+            <property name="constructorBased" value="false"/>
+            <!-- 是否允许子包，即targetPackage.schemaName.tableName -->
+            <property name="enableSubPackages" value="false"/>
+            <!-- 建立的Model对象是否 不可改变  即生成的Model对象不会有 setter方法，只有构造方法 -->
+            <property name="immutable" value="false"/>
+            <property name="trimStrings" value="false"/>
+        </javaModelGenerator>
+
+        <sqlMapGenerator targetPackage="mapper" targetProject="src/main/resources" >
+            <property name="enableSubPackages" value="false"/>
+        </sqlMapGenerator>
+
+        <!-- dao生成的存放地址 targetProject + targetPackage == 生成文件所在位置  生成的dao接口就在项目的com.dao中-->
+        <javaClientGenerator targetPackage="com.tellhow.cloud.sesp_scada_intranet.dao.mapper"
+                             targetProject="src/main/java" type="XMLMAPPER">
+        </javaClientGenerator>
+
+<!--        <table tableName="scada_meg_busbar_section_ac"  enableSelectByExample="false" enableDeleteByPrimaryKey="false" enableDeleteByExample="false" enableCountByExample="false" enableUpdateByExample="false"/>-->
+        <table tableName="cps"  enableSelectByExample="false" enableDeleteByPrimaryKey="false" enableDeleteByExample="false" enableCountByExample="false" enableUpdateByExample="false"/>
+        <table tableName="device_info"  enableSelectByExample="false" enableDeleteByPrimaryKey="false" enableDeleteByExample="false" enableCountByExample="false" enableUpdateByExample="false"/>
+        <table tableName="scada_meg_busbar_section_ac"  enableSelectByExample="false" enableDeleteByPrimaryKey="false" enableDeleteByExample="false" enableCountByExample="false" enableUpdateByExample="false"/>
+        <table tableName="scada_meg_busbar_section_ac_data"  enableSelectByExample="false" enableDeleteByPrimaryKey="false" enableDeleteByExample="false" enableCountByExample="false" enableUpdateByExample="false"/>
+        <table tableName="scada_sca_customer"  enableSelectByExample="false" enableDeleteByPrimaryKey="false" enableDeleteByExample="false" enableCountByExample="false" enableUpdateByExample="false"/>
+    </context>
+</generatorConfiguration>
