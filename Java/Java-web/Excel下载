@@ -1,0 +1,12 @@
+SpringBoot 下载Excel文件，解决文件格式与文件拓展名指定的格式不一致问题
+
+1.前端如果用xlsx格式接收表格 后台用XSSFWorkbook workbook = new XSSFWorkbook();创建工作薄
+
+response.setContentType("application/vnd.openxmlformats-officedocument.spreadsheetml.sheet");
+response.addHeader("Content-Disposition", "attachment;filename=fileName" + ".xlsx");
+
+
+2.前端如果用用xls格式接收表格 后台 用HSSFWorkbook workbook = new HSSFWorkbook();创建工作薄
+
+response.setContentType("application/vnd.ms-excel");
+response.addHeader("Content-Disposition", "attachment;filename=fileName"+".xls");
