@@ -1,0 +1,56 @@
+项目中有个需求，需要实时改变数据。实时改变数据有两种方式。
+第一种方式是通过Ajax轮询，浏览器需要不断的向服务器发出请求，在本项目中需要改变数据的地方有多处，连续的Ajax请求对服务器的压力很大，所以不适合这种方式。
+第二种方式是通过HTML5 定义的 WebSocket 协议，使浏览器和服务器保持持久性的连接，服务端向客户端主动推送信息。
+本项目中采用了第二种方式，这里对react中使用WebSocket实时改变数据做了一点笔记
+
+```
+在page中使用WebSocket，并将数据传递给组件
+
+export default class Index extends React.Component {
+    constructor(props) {
+        super(props);
+        this.ws = startWs();
+    }
+
+    componentDidMount() {
+      this.watchWs();
+    }
+
+    componentWillUnmount = () => {
+        this.ws.close();
+    }
+
+    watchWs = () => {
+        this.ws.onmessage = (evt) => {
+            let data = {};
+            try {
+                data = JSON.parse(evt.data);
+            } catch (e) { console.log(e); }
+            this.setState({
+                currentData: data,
+            });
+        };
+    }
+
+   startWs = () => {
+      // wss://域名/api/wsname
+
+      const host = 'aaa.com';
+      let protocol = 'wss';
+      const {host: host2} = window.location;
+      if (window.location.protocol === 'http:' && host2 !== 'localhost:3000') {
+          protocol = 'ws';
+      }
+      return new WebSocket(`${protocol}://${host}/api/wsname`);
+  };
+    render() {
+        const { item, currentData } = this.state;
+        return (
+            <div className="pages-index" >
+                 <Item data={item}
+                    currentData={currentData}
+                />
+            </div>)
+    }
+}
+```
