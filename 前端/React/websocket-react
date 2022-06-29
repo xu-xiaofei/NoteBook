@@ -54,3 +54,6 @@ export default class Index extends React.Component {
     }
 }
 ```
+
+https://guoningyan.com/2020/05/14/react%E7%AC%94%E8%AE%B0%EF%BC%882%EF%BC%89websocket%E5%AE%9E%E6%97%B6%E6%94%B9%E5%8F%98%E6%95%B0%E6%8D%AE/
+参考
